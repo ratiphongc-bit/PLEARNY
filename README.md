@@ -26,3 +26,7 @@ npm run build
 - TypeScript and Tailwind CSS 4
 - Three.js / React Three Fiber for 3D scenes
 - Framer Motion for UI animation
+
+## 3D assets
+
+Large GLB model files are hosted by the live demo's public asset endpoint to keep the Git repository lightweight. The 3D components use those public URLs; deployments outside the demo environment should update the model URLs to their own asset host.

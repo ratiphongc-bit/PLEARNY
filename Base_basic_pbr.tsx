@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 }
 
 export function Model(props: ThreeElements['group']) {
-  const { nodes, materials } = useGLTF('/manus-storage/base_basic_pbr_970f686c.glb') as unknown as GLTFResult
+  const { nodes, materials } = useGLTF('https://plearny-l37tbtr8.manus.spacehttps://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_970f686c.glb') as unknown as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.model.geometry} material={materials.model} />
@@ -30,4 +30,4 @@ export function Model(props: ThreeElements['group']) {
   )
 }
 
-useGLTF.preload('/manus-storage/base_basic_pbr_970f686c.glb')
+useGLTF.preload('https://plearny-l37tbtr8.manus.spacehttps://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_970f686c.glb')
