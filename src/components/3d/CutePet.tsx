@@ -9,7 +9,7 @@ export function CutePet(props: ThreeElements["group"]) {
   const group = useRef<Group>(null);
   
   // โหลดโมเดล 3D สัตว์เลี้ยงจาก project storage
-  const { scene } = useGLTF("/manus-storage/base_basic_pbr_a0e9ac15.glb");
+  const { scene } = useGLTF("https://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_a0e9ac15.glb");
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -18,4 +18,4 @@ export function CutePet(props: ThreeElements["group"]) {
   );
 }
 
-useGLTF.preload("/manus-storage/base_basic_pbr_a0e9ac15.glb");
+useGLTF.preload("https://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_a0e9ac15.glb");
