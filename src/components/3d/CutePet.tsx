@@ -1,15 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import type { ThreeElements } from "@react-three/fiber";
 import { Group } from "three";
 import { useGLTF } from "@react-three/drei";
 
-export function CutePet(props: any) {
+export function CutePet(props: ThreeElements["group"]) {
   const group = useRef<Group>(null);
   
-  // โหลดโมเดล 3D สัตว์เลี้ยงจากโฟลเดอร์ public
-  const { scene } = useGLTF("/4017de01-0eba-4012-a225-2f28d686af08/base_basic_pbr.glb");
+  // โหลดโมเดล 3D สัตว์เลี้ยงจาก project storage
+  const { scene } = useGLTF("https://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_a0e9ac15.glb");
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -18,4 +18,4 @@ export function CutePet(props: any) {
   );
 }
 
-useGLTF.preload("/4017de01-0eba-4012-a225-2f28d686af08/base_basic_pbr.glb");
+useGLTF.preload("https://plearny-l37tbtr8.manus.space/manus-storage/base_basic_pbr_a0e9ac15.glb");

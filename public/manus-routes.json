@@ -1,0 +1,16 @@
+{
+  "routes": [
+    { "path": "/", "title": "PLEARNY" },
+    { "path": "/login", "title": "เข้าสู่ระบบ" },
+    { "path": "/home", "title": "หน้าหลักนักเรียน" },
+    { "path": "/map", "title": "แผนที่การผจญภัย" },
+    { "path": "/lesson/:id", "title": "บทเรียน" },
+    { "path": "/play/:id", "title": "เกมการเรียนรู้" },
+    { "path": "/result", "title": "ผลการเรียน" },
+    { "path": "/inventory", "title": "คลังไอเทม" },
+    { "path": "/profile", "title": "โปรไฟล์" },
+    { "path": "/admin", "title": "ผู้ดูแลระบบ" },
+    { "path": "/admin/curriculum", "title": "หลักสูตร" },
+    { "path": "/admin/ai-generator", "title": "AI Question Generator" }
+  ]
+}
