@@ -6,7 +6,10 @@ Command: npx gltfjsx@6.5.3 public/07da1455-6cf3-4dd2-b98b-c20a2ebc72d1/base_basi
 import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
+import type { ThreeElements } from '@react-three/fiber'
 import { GLTF } from 'three-stdlib'
+
+type GLTFAction = THREE.AnimationClip;
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,8 +21,8 @@ type GLTFResult = GLTF & {
   animations: GLTFAction[]
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/base_basic_pbr.glb') as GLTFResult
+export function Model(props: ThreeElements['group']) {
+  const { nodes, materials } = useGLTF('/manus-storage/base_basic_pbr_970f686c.glb') as unknown as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.model.geometry} material={materials.model} />
@@ -27,4 +30,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/base_basic_pbr.glb')
+useGLTF.preload('/manus-storage/base_basic_pbr_970f686c.glb')
