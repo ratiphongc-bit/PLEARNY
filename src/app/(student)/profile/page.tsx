@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { STUDENT_USER } from "@/mock/data";
 import { cn } from "@/lib/utils";
-import { Star, Flame, Heart, Award, BookOpen, Shield, TrendingUp } from "lucide-react";
+import { Flame, Heart, Award, BookOpen, TrendingUp } from "lucide-react";
+
+type ProfileTab = "skills" | "achievements";
 
 const ACHIEVEMENTS = [
   { icon: "🔥", title: "7 Day Streak", desc: "บันทึกการเรียน 7 วันต่อเนื่อง", unlocked: true, rarity: "epic" },
@@ -33,7 +33,7 @@ const RARITY_COLORS: Record<string, string> = {
 };
 
 export default function ProfilePage() {
-  const [activeTab, setActiveTab] = useState<"skills" | "achievements">("skills");
+  const [activeTab, setActiveTab] = useState<ProfileTab>("skills");
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-slate-50 flex flex-col">
@@ -157,7 +157,7 @@ export default function ProfilePage() {
             ].map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key as any)}
+                onClick={() => setActiveTab(tab.key as ProfileTab)}
                 className={cn(
                   "flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all duration-300",
                   activeTab === tab.key
