@@ -132,7 +132,7 @@ export default function AdminAIGenerator() {
                       <span className="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Diff: 3</span>
                     </div>
                     <p className="text-slate-800 font-medium text-sm leading-relaxed mb-4">
-                      <strong>Context:</strong> "Build the Dragon Bridge"
+                      <strong>Context:</strong> &quot;Build the Dragon Bridge&quot;
                       <br/>
                       <strong>Setup:</strong> A bridge requires pieces of wood. The total length is 24m. Each piece is 3m.
                       <br/>
