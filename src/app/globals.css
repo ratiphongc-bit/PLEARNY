@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand Colors - these create bg-primary, text-primary, etc. */
+  --color-primary: #7c3aed;
+  --color-primary-light: #8b5cf6;
+  --color-primary-dark: #6d28d9;
+
+  --color-secondary: #0ea5e9;
+  --color-secondary-light: #38bdf8;
+  --color-secondary-dark: #0284c7;
+
+  --color-accent: #f43f5e;
+  --color-accent-light: #fb7185;
+
+  --color-gold: #fbbf24;
+  --color-gold-light: #fcd34d;
+
+  --color-success: #10b981;
+  --color-success-light: #34d399;
+
+  --color-indigo: #4f46e5;
+  --color-indigo-light: #6366f1;
+
+  /* Font */
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Global resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* The game UI manages its own scroll per page */
+}
+
+/* Hide scrollbars visually but keep scrollability */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Selection */
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
