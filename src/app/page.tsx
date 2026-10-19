@@ -74,24 +74,23 @@ export default function LandingPage() {
           </Link>
         </div>
 
-        {/* Mock game preview */}
+        {/* Game preview illustration */}
         <div className="w-full max-w-4xl rounded-[2.5rem] border border-slate-200 bg-white/80 backdrop-blur-xl shadow-2xl overflow-hidden aspect-video relative">
           {/* Header bar */}
           <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-20">
             <div className="bg-white/90 backdrop-blur-md border border-slate-200 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-light to-gold flex items-center justify-center text-sm font-black text-yellow-900">18</div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-light to-gold flex items-center justify-center text-sm font-black text-yellow-900">1</div>
               <div>
-                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Nina</div>
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">นักผจญภัยใหม่</div>
                 <div className="w-16 h-1.5 bg-slate-200 rounded-full overflow-hidden mt-0.5">
-                  <div className="w-[82%] h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+                  <div className="w-0 h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
                 </div>
               </div>
             </div>
             <div className="flex gap-2">
               {[
-                { icon: "🔥", val: "12" }, 
-                { icon: "❤️", val: "5" }, 
-                { icon: "🪙", val: "1,280" }
+                { icon: "🗺️", val: "ด่าน 1" },
+                { icon: "🪙", val: "0" }
               ].map(s => (
                 <div key={s.val} className="bg-white/90 backdrop-blur-md border border-slate-200 px-3 py-2 rounded-full text-xs font-black text-slate-700 shadow-sm flex items-center gap-1.5">
                   {s.icon} {s.val}

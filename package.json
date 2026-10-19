@@ -2,10 +2,12 @@
   "name": "jump_thai",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.2",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/run-dev.mjs",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/run-prod.mjs",
+    "test:python": "node scripts/test-python.mjs",
     "lint": "eslint"
   },
   "dependencies": {
@@ -17,7 +19,8 @@
     "clsx": "^2.1.1",
     "framer-motion": "^13.1.0",
     "lucide-react": "^1.31.0",
-    "next": "16.3.1",
+    "mysql2": "^3.24.6",
+    "next": "^16.4.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "tailwind-merge": "^3.6.0",
@@ -31,7 +34,7 @@
     "@types/react-dom": "^19",
     "@types/three": "^0.185.4",
     "eslint": "^9",
-    "eslint-config-next": "16.3.1",
+    "eslint-config-next": "^16.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
