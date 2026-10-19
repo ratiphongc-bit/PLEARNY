@@ -71,6 +71,13 @@ export async function gradeGameAttempt(stageId: number, attemptId: string, answe
   });
 }
 
+export async function checkGameAnswer(stageId: number, attemptId: string, questionId: string, answer: string): Promise<{ question_id: string; correct: boolean }> {
+  return requestJson(`/levels/${stageId}/answer`, {
+    method: "POST",
+    body: JSON.stringify({ attempt_id: attemptId, question_id: questionId, answer }),
+  });
+}
+
 export async function pingPythonService(): Promise<void> {
   await requestJson<{ status: string }>("/health");
 }

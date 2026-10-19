@@ -69,6 +69,12 @@ class GradeInput(BaseModel):
     answers: list[AnswerInput] = Field(max_length=5)
 
 
+class CheckAnswerInput(BaseModel):
+    attempt_id: str = Field(min_length=8, max_length=80, pattern=_ATTEMPT_ID_PATTERN)
+    question_id: str = Field(min_length=1, max_length=64)
+    answer: str = Field(max_length=128)
+
+
 def public_stage(stage: Stage) -> dict[str, Any]:
     return {**asdict(stage), "question_count": 5, "pass_score": 3}
 
@@ -201,6 +207,16 @@ def grade_attempt(stage_id: int, attempt_id: str, answers: list[dict[str, Any]])
     }
 
 
+def check_answer(stage_id: int, attempt_id: str, question_id: str, answer: str) -> dict[str, Any]:
+    make_attempt(stage_id, attempt_id)
+    rng = seeded_rng(stage_id, attempt_id)
+    for index in range(5):
+        question = make_question(_STAGE_BY_ID[stage_id], index, rng)
+        if question["id"] == question_id:
+            return {"question_id": question_id, "correct": answer == question["_answer"]}
+    raise ValueError("unknown question")
+
+
 app = FastAPI(title="PLEARNY Game Service", docs_url=None, redoc_url=None, openapi_url=None)
 
 
@@ -242,6 +258,14 @@ def get_attempt(stage_id: int, attempt_id: str = "") -> dict[str, Any]:
 def post_grade(stage_id: int, body: GradeInput) -> dict[str, Any]:
     try:
         return grade_attempt(stage_id, body.attempt_id, [answer.model_dump() for answer in body.answers])
+    except ValueError as error:
+        raise HTTPException(status_code=404 if str(error) == "unknown stage" else 400, detail=str(error)) from error
+
+
+@app.post("/levels/{stage_id}/answer")
+def post_answer(stage_id: int, body: CheckAnswerInput) -> dict[str, Any]:
+    try:
+        return check_answer(stage_id, body.attempt_id, body.question_id, body.answer)
     except ValueError as error:
         raise HTTPException(status_code=404 if str(error) == "unknown stage" else 400, detail=str(error)) from error
 

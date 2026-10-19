@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "node scripts/run-prod.mjs",
     "test:python": "node scripts/test-python.mjs",
+    "test:player": "node scripts/test-player-rules.mjs",
     "lint": "eslint"
   },
   "dependencies": {

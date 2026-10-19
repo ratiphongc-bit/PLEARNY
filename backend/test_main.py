@@ -34,6 +34,20 @@ class GameServiceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             make_attempt(13, "attempt-test-0003")
 
+    def test_check_answer_uses_server_answer_key_and_validates_question(self):
+        stage_id = 2
+        attempt_id = "attempt-test-answer-01"
+        attempt = make_attempt(stage_id, attempt_id)
+        question = attempt["questions"][0]
+        rng = seeded_rng(stage_id, attempt_id)
+        first = make_question(STAGES[stage_id - 1], 0, rng)
+        self.assertTrue(check_answer(stage_id, attempt_id, question["id"], first["_answer"])["correct"])
+        wrong = next(choice for choice in question["choices"] if choice != first["_answer"])
+        self.assertFalse(check_answer(stage_id, attempt_id, question["id"], wrong)["correct"])
+        with self.assertRaises(ValueError):
+            check_answer(stage_id, attempt_id, "not-a-question", "0")
+
 
 if __name__ == "__main__":
     unittest.main()
+from backend.main import check_answer
