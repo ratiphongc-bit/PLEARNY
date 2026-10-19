@@ -34,4 +34,4 @@
 
 ## ส่งมอบการเพิ่มหัวใจ/streak
 - [x] ตรวจ lint, TypeScript, Python tests และ production build หลัง implementation; ตรวจ Preview โดยไม่สร้าง/ลบ player profile ทดสอบในฐานข้อมูลร่วม (GET `/login`, `/home` และ `/manus-routes.json` ตอบ HTTP 200; ไม่เรียก route ที่เขียนข้อมูลผู้เล่น)
-- [ ] commit/push source ที่เพิ่ม heart/streak ไปยัง GitHub `main`, บันทึก checkpoint ของ Manus, publish เวอร์ชันใหม่ และตรวจ HTTP readiness ก่อนส่งลิงก์
+- [x] commit/push source ที่เพิ่ม heart/streak ไปยัง GitHub `main`, บันทึก checkpoint ของ Manus, publish เวอร์ชันใหม่ และตรวจ HTTP readiness ก่อนส่งลิงก์ (GitHub heart/streak source commit=`c2673c8bbfa9ef020e57c9b81aa1a305007e7d27`; Manus feature checkpoint/published version=`fb0f53e746124ea377fc23158c206193bda0028b`; `/api/health` และ `/home` ตอบ HTTP 200 ที่ `https://plearny-l37tbtr8.manus.space`)
